@@ -12,6 +12,7 @@ export class LogoSliderComponent {
   logos = [
     '/assets/images/logos/git.svg',
     '/assets/images/logos/angular.svg',
+    '/assets/images/logos/react.svg',
     '/assets/images/logos/vue.svg',
     '/assets/images/logos/js.svg',
     '/assets/images/logos/html.svg',

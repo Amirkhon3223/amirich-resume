@@ -30,6 +30,14 @@
 
 @media screen and (max-width: 768px) {
   .logo-slider {
-    animation: marquee 5s linear infinite;
+    animation: marquee 6s linear infinite;
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 }

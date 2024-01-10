@@ -25,11 +25,10 @@ export class GeneralService {
   constructor() {
   }
 
-
   private about: About[] = [
     {
       id: 1,
-      title: '4 Years Experience',
+      title: '2 Years Experience',
       text: 'Experience in Front-End development.',
       icon: '/assets/icons/time.svg',
     },
@@ -80,7 +79,7 @@ export class GeneralService {
       name: 'Github',
       icon: '/assets/images/logos/github.svg',
       alt: 'Amirich Github, Amirkhon Linkedin',
-      href: 'https://github.com/Amirkhon3223?tab=repositories'
+      href: 'https://github.com/Amirkhon3223'
     },
   ]
 

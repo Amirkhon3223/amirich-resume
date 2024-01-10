@@ -32,20 +32,20 @@ export class OfferingsService {
       imageUrl: '/assets/images/Services/Response.png',
       link: '/',
     },
-    {
-      id: 3,
-      name: 'Single Page Applications (SPAs)',
-      description: 'Fluid user experiences with SPAs, eliminating page reloads, and incorporating seamless API integration for real-time updates and interactive features.',
-      imageUrl: '/assets/images/Services/SWA.png',
-      link: '/',
-    },
-    {
-      id: 4,
-      name: 'Progressive Web Apps (PWAs)',
-      description: 'Web solutions mirroring mobile app features, with API integration for offline access, push notifications, and enhanced interactivity.',
-      imageUrl: '/assets/images/Services/PWA.png',
-      link: '/',
-    },
+    // {
+    //   id: 3,
+    //   name: 'Single Page Applications (SPAs)',
+    //   description: 'Fluid user experiences with SPAs, eliminating page reloads, and incorporating seamless API integration for real-time updates and interactive features.',
+    //   imageUrl: '/assets/images/Services/SWA.png',
+    //   link: '/',
+    // },
+    // {
+    //   id: 4,
+    //   name: 'Progressive Web Apps (PWAs)',
+    //   description: 'Web solutions mirroring mobile app features, with API integration for offline access, push notifications, and enhanced interactivity.',
+    //   imageUrl: '/assets/images/Services/PWA.png',
+    //   link: '/',
+    // },
   ];
 
   constructor() {
