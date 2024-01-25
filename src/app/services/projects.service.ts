@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 
 export interface Project {
@@ -69,7 +69,7 @@ export class ProjectsService {
   constructor() {
   }
 
-  getProjects(): Observable<Project[]> {
-    return of(this.projectsData);
+  getProjects(): Project[] {
+    return this.projectsData;
   }
 }

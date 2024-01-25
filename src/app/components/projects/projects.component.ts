@@ -12,11 +12,11 @@ import { RouterLink } from "@angular/router";
   styleUrl: './projects.component.css',
 })
 export class ProjectsComponent implements OnInit {
-  projects$!: Observable<Project[]>;
-  constructor(private projectsService: ProjectsService) {
-  }
+  projects: Project[] = []
+  constructor(private projectsService: ProjectsService) { }
+
 
   ngOnInit(): void {
-    this.projects$ = this.projectsService.getProjects();
+    this.projects = this.projectsService.getProjects();
   }
 }

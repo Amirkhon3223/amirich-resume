@@ -12,12 +12,12 @@ import {Observable} from "rxjs";
 
 })
 export class ServicesComponent implements OnInit{
-  services$!: Observable<Service[]>;
+  services:Service[] = [];
 
   constructor(private offeringsService: OfferingsService) {}
 
   ngOnInit(): void {
-    this.services$ = this.offeringsService.getServices();
+    this.services = this.offeringsService.getServices();
   }
 
 }
