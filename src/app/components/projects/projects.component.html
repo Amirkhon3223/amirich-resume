@@ -1,0 +1,52 @@
+<section>
+  <div class="mx-auto max-w-7xl px-5"
+       id="projects"
+  >
+    <h1 class="text-5xl text-center py-8 text-white font-bold">
+      Portfolio
+    </h1>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 px-5 justify-center">
+      <ng-container>
+        @for (project of projects | slice:0:4; track project.id) {
+          <a [href]="project.href"
+             target="_blank"
+             class="project-item group relative rounded-lg overflow-hidden hover:shadow-2xl cursor-pointer hover:scale-105 transition">
+            <div class="h-36 lg:h-52">
+              <img [src]="project.imageUrl"
+                   [alt]="project.alt"
+                   class="w-full h-full object-cover object-center"
+              >
+            </div>
+            <div class="py-3 w-full">
+              <h3 class="text-base font-semibold text-secondary">
+                <p class="hover:underline text-lg font-bold">
+                  {{ project.title }}
+                </p>
+              </h3>
+              <div class='flex flex-row justify-between text-xs text-gray-300'>
+                <p class="text-lg">
+                  {{ project.description }}
+                </p>
+              </div>
+            </div>
+          </a>
+        }
+      </ng-container>
+    </div>
+
+    <div class="grid mt-2 grid-cols-1 lg:mt-5 md:flex md:justify-center lg:justify-center my-6">
+      <a aria-label="add to slack"
+         routerLink="/projects"
+         class="p-4 border bg-gray-800 border-gray-700 rounded-full duration-300
+                hover:border-general hover:shadow-lg hover:shadow-indigo-600/20 hover:border-indigo-300/30"
+      >
+        <div class="flex justify-center space-x-4">
+          <span class="font-medium text-white">
+            View more projects
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

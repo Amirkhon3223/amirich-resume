@@ -1,0 +1,14 @@
+<div class="flex items-center bg-general w-full md:py-3 pt-1 pb-1">
+  <div class="logo-slider-container max-w-7xl mx-auto items-center">
+    <div class="logo-slider md:space-x-10 space-x-1">
+      <div *ngFor="let logo of logos"
+           class="logo"
+      >
+        <img [src]="logo"
+             alt="Amirkhon developer Amirich developer"
+             class="md:w-2/2 md:h-2/2 lg:h-ful lg:w-full w-16 h-16"
+        />
+      </div>
+    </div>
+  </div>
+</div>

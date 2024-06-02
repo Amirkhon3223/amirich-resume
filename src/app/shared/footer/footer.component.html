@@ -1,0 +1,56 @@
+<div class="bg-black/20">
+  <div
+    class="max-w-7xl mx-auto py-5 px-5 grid gap-4 grid-cols-1 md:grid-cols-3 items-center justify-center text-center">
+
+    <div class="font-bold md:text-md text-md text-secondary items-center justify-center">
+      Created by Amirkhon Isomadinov
+    </div>
+
+    <div class="md:hidden mt-2 md:mt-0 px-8">
+      <div class="grid grid-cols-4 items-center gap-2 md:gap-5 md:flex justify-center">
+        @for (link of socialLinks | async; track link.href) {
+          <a aria-label="add to slack"
+             [href]="link.href"
+             class="p-2 border border-gray-200 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20"
+          >
+            <div class="flex justify-center">
+              <img src="{{ link.icon }}"
+                   class="w-5 h-5"
+                   [alt]="link.alt"
+                   loading="lazy"
+                   width="128"
+                   height="128"
+              />
+            </div>
+          </a>
+        }
+      </div>
+    </div>
+
+    <div class="md:text-md text-xs text-general items-center justify-center mt-2 md:mt-0">
+      © Copyright by Amirich 2024.
+    </div>
+
+    <div class="hidden md:flex mt-2 md:mt-0">
+      <div class="grid grid-cols-4 items-center gap-2 md:gap-5 md:flex justify-center">
+        @for (link of socialLinks | async; track link.id) {
+          <a aria-label="add to slack"
+             [href]="link.href"
+             class="p-2 border border-gray-200 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20"
+          >
+            <div class="flex justify-center">
+              <img src="{{ link.icon }}"
+                   class="w-5 h-5"
+                   [alt]="link.alt"
+                   loading="lazy"
+                   width="128"
+                   height="128"
+              />
+            </div>
+          </a>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>

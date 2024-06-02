@@ -1,0 +1,81 @@
+<nav class="py-4">
+  <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-5 sm:px-6 lg:px-0 mx-auto">
+    <a class="flex items-center"
+       routerLink="/home"
+    >
+      <img alt="Landwind Logo"
+           class="h-12 mr-3 sm:h-12"
+           src="../../../assets/images/logos/amirich-logo.svg"
+      />
+      <span class="self-center text-3xl font-bold text-general">
+        Amirich
+      </span>
+    </a>
+    <div class="flex items-center lg:order-2">
+      <div class="hidden mt-2 mr-4 sm:inline-block">
+        <span></span>
+      </div>
+      <button (click)="toggleMenu()"
+              [attr.aria-expanded]="isMenuOpen()"
+              [class.block]="isMenuOpen()"
+              aria-controls="mobile-menu-2"
+              class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-900 focus:outline-none"
+              data-collapse-toggle="mobile-menu-2"
+              type="button"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path clip-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                fill-rule="evenodd"
+          >
+          </path>
+        </svg>
+      </button>
+    </div>
+
+    <div [class.hidden]="!isMenuOpen()"
+         class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
+         id="mobile-menu-2"
+    >
+      <ul class="flex flex-col lg:space-y-0 space-y-5 mt-4 items-center font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+        <li>
+          <a class="cursor-pointer text-secondary lg:hover:bg-transparent lg:hover:text-white active:text-general"
+             routerLink="/home"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a (click)="onNavigateAndScroll('about')"
+             class="cursor-pointer text-secondary lg:hover:bg-transparent lg:hover:text-white active:text-general"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a (click)="onNavigateAndScroll('services')"
+             class="cursor-pointer text-secondary lg:hover:bg-transparent lg:hover:text-white active:text-general"
+          >
+            Services
+          </a>
+        </li>
+        <li>
+          <a (click)="onNavigateAndScroll('projects')"
+             class="cursor-pointer text-secondary lg:hover:bg-transparent lg:hover:text-white active:text-general"
+          >
+            Projects
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-white bg-general my-2 focus:ring-1 focus:ring-secondary font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
+            href="https://drive.google.com/drive/folders/1sub8N9JE1cKy4yMBYocKuYN9-Xj0ImBK?usp=drive_link"
+          >
+            Download Resume
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

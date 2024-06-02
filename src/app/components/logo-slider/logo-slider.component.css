@@ -1,0 +1,44 @@
+/* Ваш общий CSS */
+.logo-slider-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.logo-slider {
+  display: flex;
+  animation: marquee 7s linear infinite;
+  width: max-content;
+}
+
+.logo {
+  flex: 0 0 auto;
+}
+
+.logo img {
+  width: 7rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo-slider {
+    animation: marquee 6s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
