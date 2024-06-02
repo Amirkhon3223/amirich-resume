@@ -19,7 +19,7 @@ export class ProjectsService {
       id: 1,
       title: 'Ustuvor',
       description: 'Furniture Workshop Ustuvor',
-      imageUrl: '/assets/images/ustuvor.jpeg',
+      imageUrl: '../assets/images/ustuvor.jpeg',
       alt: 'Amirkhon Ustuvor',
       href: 'https://ustuvor.netlify.app/'
     },
