@@ -34,8 +34,8 @@ export class NavbarComponent {
   }
 
   public onNavigateAndScroll(sectionId: string): void {
-    if (this.router.url !== '/home') {
-      this.router.navigate(['/home']).then(() => {
+    if (this.router.url !== '/') {
+      this.router.navigate(['/']).then(() => {
         this.scrollToSection(sectionId);
       });
     } else {
