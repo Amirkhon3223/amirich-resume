@@ -11,8 +11,8 @@ import { About, GeneralService, Social } from '../../core/services/general.servi
   styleUrl: './about.component.css'
 })
 export class AboutComponent implements OnInit {
-  socialLinks!: Observable<Social[]>;
-  aboutInfo!: Observable<About[]>;
+  protected socialLinks!: Observable<Social[]>;
+  protected aboutInfo!: Observable<About[]>;
 
   private linkService = inject(GeneralService);
   private aboutExperience = inject(GeneralService);
