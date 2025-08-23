@@ -25,26 +25,26 @@ export class GeneralService {
   private about: About[] = [
     {
       id: 1,
-      title: '2 Years Experience',
-      text: 'Experience in Front-End development.',
+      title: '6+ Years Experience',
+      text: 'Frontend development focused on scalable CRM/ERP and high‑load applications.',
       icon: '/assets/icons/time.svg',
     },
     {
       id: 2,
-      title: '7 Projects',
-      text: 'From dynamic websites to web applications.',
+      title: '12+ Production Projects',
+      text: 'Food delivery admin panels, pharmacy CRM, legal platforms, restaurant CRM.',
       icon: '/assets/icons/projects.svg',
     },
     {
       id: 3,
-      title: 'Modern Design',
-      text: 'My projects blend functionality with stylish design',
+      title: 'Angular & React Expert',
+      text: 'Angular as core stack + solid React/TypeScript, RxJS/NgRx, Redux, SCSS.',
       icon: '/assets/icons/layout.svg',
     },
     {
       id: 4,
-      title: 'Client-Centric Approach',
-      text: 'Guaranteed Quality and Client Satisfaction as the Top Priority.',
+      title: 'NASA Challenge Winner',
+      text: 'Global Winner of NASA Space Apps; invited to NASA HQ & Goddard Space Flight Center.',
       icon: '/assets/icons/client-centric.svg',
     }
   ];
@@ -54,21 +54,21 @@ export class GeneralService {
       name: 'Instagram',
       icon: '/assets/images/logos/instagram.svg',
       alt: 'Amirkhon Instagram, Amirich instagram',
-      href: 'https://www.instagram.com/amirkhon_isomadinov/'
+      href: 'https://www.instagram.com/amirkhon.isomadinov/'
     },
     {
       id: 2,
       name: 'Telegram',
       icon: '/assets/images/logos/telegram.svg',
       alt: 'Amirkhon Telegram, Amirich telegram',
-      href: 'https://t.me/Amirichvoker'
+      href: 'https://t.me/Amirichinvoker'
     },
     {
       id: 3,
       name: 'Linkedin',
       icon: '/assets/images/logos/linkedin.svg',
       alt: 'Amirich Linkedin, Amirkhon linkedin',
-      href: 'https://www.linkedin.com/in/amirkhon-isomadinov-30a8561b8/'
+      href: 'https://www.linkedin.com/in/amirkhon-isomadinov/'
     },
     {
       id: 4,
