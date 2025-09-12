@@ -25,7 +25,7 @@ export class GeneralService {
   private about: About[] = [
     {
       id: 1,
-      title: '6+ Years Experience',
+      title: '7+ Years Experience',
       text: 'Frontend development focused on scalable CRM/ERP and high‑load applications.',
       icon: '/assets/icons/time.svg',
     },
