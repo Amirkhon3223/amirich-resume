@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroSectionComponent } from '../../components/hero-section/hero-section.component';
 import { LogoSliderComponent } from '../../components/logo-slider/logo-slider.component';
@@ -11,8 +11,7 @@ import { ServicesComponent } from '../../components/services/services.component'
   standalone: true,
   imports: [CommonModule, HeroSectionComponent, LogoSliderComponent, AboutComponent, ProjectsComponent, ServicesComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}

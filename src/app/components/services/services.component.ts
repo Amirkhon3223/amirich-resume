@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OfferingsService, Service } from '../../core/services/offerings.service';
 
@@ -8,15 +8,14 @@ import { OfferingsService, Service } from '../../core/services/offerings.service
   imports: [CommonModule],
   templateUrl: './services.component.html',
   styleUrl: './services.component.css',
-
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ServicesComponent implements OnInit {
-  services: Service[] = [];
-
+export class ServicesComponent {
   private offeringsService = inject(OfferingsService);
 
-  ngOnInit(): void {
-    this.services = this.offeringsService.getServices();
-  }
+  readonly services: Service[] = this.offeringsService.getServices();
 
+  trackByServiceId(index: number, service: Service): number {
+    return service.id;
+  }
 }

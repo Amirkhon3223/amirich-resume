@@ -1,44 +1,30 @@
-/* Ваш общий CSS */
-.logo-slider-container {
+/* Marquee animation - GPU accelerated */
+.marquee-container {
   overflow: hidden;
   width: 100%;
-  position: relative;
 }
 
-.logo-slider {
+.marquee-content {
   display: flex;
-  animation: marquee 7s linear infinite;
+  gap: 1rem;
   width: max-content;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
 }
 
-.logo {
-  flex: 0 0 auto;
+.marquee-content:hover {
+  animation-play-state: paused;
 }
 
-.logo img {
-  width: 7rem;
+.tech-item {
+  flex-shrink: 0;
 }
 
 @keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-100%);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .logo-slider {
-    animation: marquee 6s linear infinite;
-  }
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(50%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+    transform: translate3d(-50%, 0, 0);
   }
 }

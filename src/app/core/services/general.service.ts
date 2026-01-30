@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-
 export interface About {
   id: number;
   title: string;
@@ -21,8 +20,7 @@ export interface Social {
   providedIn: 'root'
 })
 export class GeneralService {
-
-  private about: About[] = [
+  private readonly about: About[] = [
     {
       id: 1,
       title: '7+ Years Experience',
@@ -48,7 +46,8 @@ export class GeneralService {
       icon: '/assets/icons/client-centric.svg',
     }
   ];
-  private socialLinks: Social[] = [
+
+  private readonly socialLinks: Social[] = [
     {
       id: 1,
       name: 'Instagram',
@@ -79,9 +78,16 @@ export class GeneralService {
     },
   ];
 
-  constructor() {
+  // Синхронные методы - используй их для статических данных
+  getSocialLinksSync(): Social[] {
+    return this.socialLinks;
   }
 
+  getAboutInfoSync(): About[] {
+    return this.about;
+  }
+
+  // Observable методы оставлены для совместимости (если где-то используются)
   getSocialLinks(): Observable<Social[]> {
     return of(this.socialLinks);
   }

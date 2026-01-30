@@ -1,14 +1,61 @@
-<div class="flex items-center bg-general w-full md:py-3 pt-1 pb-1">
-  <div class="logo-slider-container max-w-7xl mx-auto items-center">
-    <div class="logo-slider md:space-x-10 space-x-1">
-      <div *ngFor="let logo of logos"
-           class="logo"
-      >
-        <img [src]="logo"
-             alt="Amirkhon developer Amirich developer"
-             class="md:w-2/2 md:h-2/2 lg:h-ful lg:w-full w-16 h-16"
-        />
+<!-- Tech Stack Marquee -->
+<section class="relative py-12 overflow-hidden">
+
+  <!-- Background glow -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="glow-orb w-[600px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-15"></div>
+  </div>
+
+  <!-- Decorative lines -->
+  <div class="divider"></div>
+
+  <div class="py-10 relative z-10">
+    <!-- Label -->
+    <div class="text-center mb-8">
+      <span class="text-sm font-medium text-zinc-500 uppercase tracking-widest">Technologies I work with</span>
+    </div>
+
+    <!-- Marquee container -->
+    <div class="relative">
+      <!-- Fade edges -->
+      <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-obsidian-950 to-transparent z-10"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-obsidian-950 to-transparent z-10"></div>
+
+      <!-- Scrolling content -->
+      <div class="marquee-container">
+        <div class="marquee-content">
+          <!-- First set -->
+          @for (tech of technologies; track tech.name) {
+            <div class="tech-item">
+              <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl
+                          bg-obsidian-900/40 border border-obsidian-800">
+                <img [src]="tech.icon"
+                     [alt]="tech.name"
+                     class="w-7 h-7 opacity-70" />
+                <span class="text-sm font-medium text-zinc-400">
+                  {{ tech.name }}
+                </span>
+              </div>
+            </div>
+          }
+          <!-- Duplicate set for seamless loop -->
+          @for (tech of technologies; track tech.name + '-dup') {
+            <div class="tech-item">
+              <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl
+                          bg-obsidian-900/40 border border-obsidian-800">
+                <img [src]="tech.icon"
+                     [alt]="tech.name"
+                     class="w-7 h-7 opacity-70" />
+                <span class="text-sm font-medium text-zinc-400">
+                  {{ tech.name }}
+                </span>
+              </div>
+            </div>
+          }
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="divider"></div>
+</section>

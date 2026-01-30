@@ -1,21 +1,21 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GeneralService, Social } from '../../core/services/general.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-hero-section',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './hero-section.component.html',
-  styleUrl: './hero-section.component.css'
+  styleUrl: './hero-section.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeroSectionComponent implements OnInit {
-  socialLinks!: Observable<Social[]>;
-
+export class HeroSectionComponent {
   private linkService = inject(GeneralService);
 
-  ngOnInit(): void {
-    this.socialLinks = this.linkService.getSocialLinks();
+  readonly socialLinks: Social[] = this.linkService.getSocialLinksSync();
+
+  trackBySocialId(index: number, link: Social): number {
+    return link.id;
   }
 }
