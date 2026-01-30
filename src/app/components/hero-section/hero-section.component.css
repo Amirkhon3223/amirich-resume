@@ -1,21 +1,4 @@
-@keyframes moveInCircle {
-  0% {
-    transform: translate(0, 1.2rem);
-  }
-  25% {
-    transform: translate(1.2rem, 0);
-  }
-  50% {
-    transform: translate(0, -1.2rem);
-  }
-  75% {
-    transform: translate(-1.2rem, 0);
-  }
-  100% {
-    transform: translate(0, 1.2rem);
-  }
-}
-
-.animated-image {
-  animation: moveInCircle 5s linear infinite;
+/* Hero section - minimal styles, most handled by Tailwind */
+:host {
+  display: block;
 }

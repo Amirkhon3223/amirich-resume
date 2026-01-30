@@ -1,0 +1,30 @@
+/* Navbar link styles */
+.nav-link {
+  @apply relative px-4 py-2 text-sm font-medium text-zinc-400 rounded-lg cursor-pointer
+         transition-all duration-300 hover:text-white hover:bg-obsidian-800/50;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-electric rounded-full
+         transition-all duration-300 -translate-x-1/2;
+}
+
+.nav-link:hover::after {
+  @apply w-4;
+}
+
+/* Mobile nav link */
+.mobile-nav-link {
+  @apply block px-4 py-3 text-lg font-medium text-zinc-300 rounded-xl cursor-pointer
+         transition-all duration-300 hover:text-white hover:bg-obsidian-800/50;
+}
+
+/* Scrolled state */
+.nav-scrolled {
+  @apply shadow-lg;
+}
+
+.nav-scrolled > div:first-child {
+  @apply bg-obsidian-950/90;
+}

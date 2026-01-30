@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-
 export interface About {
   id: number;
   title: string;
@@ -21,8 +20,7 @@ export interface Social {
   providedIn: 'root'
 })
 export class GeneralService {
-
-  private about: About[] = [
+  private readonly aboutData: About[] = [
     {
       id: 1,
       title: '7+ Years Experience',
@@ -48,7 +46,8 @@ export class GeneralService {
       icon: '/assets/icons/client-centric.svg',
     }
   ];
-  private socialLinks: Social[] = [
+
+  private readonly socialLinksData: Social[] = [
     {
       id: 1,
       name: 'Instagram',
@@ -79,14 +78,19 @@ export class GeneralService {
     },
   ];
 
-  constructor() {
+  public getSocialLinksSync(): Social[] {
+    return this.socialLinksData;
   }
 
-  getSocialLinks(): Observable<Social[]> {
-    return of(this.socialLinks);
+  public getAboutInfoSync(): About[] {
+    return this.aboutData;
   }
 
-  getAboutInfo(): Observable<About[]> {
-    return of(this.about);
+  public getSocialLinks(): Observable<Social[]> {
+    return of(this.socialLinksData);
+  }
+
+  public getAboutInfo(): Observable<About[]> {
+    return of(this.aboutData);
   }
 }

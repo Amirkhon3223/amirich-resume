@@ -1,23 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+interface TechItem {
+  name: string;
+  icon: string;
+}
 
 @Component({
   selector: 'app-logo-slider',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './logo-slider.component.html',
-  styleUrl: './logo-slider.component.css'
+  styleUrl: './logo-slider.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LogoSliderComponent {
-  logos = [
-    '/assets/images/logos/git.svg',
-    '/assets/images/logos/angular.svg',
-    '/assets/images/logos/react.svg',
-    '/assets/images/logos/vue.svg',
-    '/assets/images/logos/js.svg',
-    '/assets/images/logos/html.svg',
-    '/assets/images/logos/css.svg',
-    '/assets/images/logos/tailwind.svg',
-    '/assets/images/logos/bootstrap.svg',
+  public readonly technologies: TechItem[] = [
+    { name: 'Angular', icon: '/assets/images/logos/angular.svg' },
+    { name: 'React', icon: '/assets/images/logos/react.svg' },
+    { name: 'Vue', icon: '/assets/images/logos/vue.svg' },
+    { name: 'TypeScript', icon: '/assets/images/logos/js.svg' },
+    { name: 'HTML5', icon: '/assets/images/logos/html.svg' },
+    { name: 'CSS3', icon: '/assets/images/logos/css.svg' },
+    { name: 'Tailwind', icon: '/assets/images/logos/tailwind.svg' },
+    { name: 'Git', icon: '/assets/images/logos/git.svg' },
+    { name: 'Bootstrap', icon: '/assets/images/logos/bootstrap.svg' },
   ];
 }

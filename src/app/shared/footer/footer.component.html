@@ -1,56 +1,75 @@
-<div class="bg-black/20">
-  <div
-    class="max-w-7xl mx-auto py-5 px-5 grid gap-4 grid-cols-1 md:grid-cols-3 items-center justify-center text-center">
+<!-- Footer - Obsidian Precision -->
+<footer class="relative border-t border-obsidian-800 overflow-hidden">
 
-    <div class="font-bold md:text-md text-md text-secondary items-center justify-center">
-      Created by Amirkhon Isomadinov
-    </div>
-
-    <div class="md:hidden mt-2 md:mt-0 px-8">
-      <div class="grid grid-cols-4 items-center gap-2 md:gap-5 md:flex justify-center">
-        @for (link of socialLinks | async; track link.href) {
-          <a aria-label="add to slack"
-             [href]="link.href"
-             class="p-2 border border-gray-200 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20"
-          >
-            <div class="flex justify-center">
-              <img src="{{ link.icon }}"
-                   class="w-5 h-5"
-                   [alt]="link.alt"
-                   loading="lazy"
-                   width="128"
-                   height="128"
-              />
-            </div>
-          </a>
-        }
-      </div>
-    </div>
-
-    <div class="md:text-md text-xs text-general items-center justify-center mt-2 md:mt-0">
-      © Copyright by Amirich 2024.
-    </div>
-
-    <div class="hidden md:flex mt-2 md:mt-0">
-      <div class="grid grid-cols-4 items-center gap-2 md:gap-5 md:flex justify-center">
-        @for (link of socialLinks | async; track link.id) {
-          <a aria-label="add to slack"
-             [href]="link.href"
-             class="p-2 border border-gray-200 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20"
-          >
-            <div class="flex justify-center">
-              <img src="{{ link.icon }}"
-                   class="w-5 h-5"
-                   [alt]="link.alt"
-                   loading="lazy"
-                   width="128"
-                   height="128"
-              />
-            </div>
-          </a>
-        }
-      </div>
-    </div>
-
+  <!-- Background glow -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="glow-orb w-[500px] h-[500px] -bottom-64 left-1/2 -translate-x-1/2 opacity-20"></div>
+    <div class="glow-orb w-[300px] h-[300px] top-0 -right-32 opacity-15"></div>
   </div>
-</div>
+
+  <div class="section-container relative z-10 py-16 lg:py-20">
+
+    <div class="grid lg:grid-cols-3 gap-12 lg:gap-8 items-center">
+
+      <!-- Left: Brand -->
+      <div class="text-center lg:text-left">
+        <div class="flex items-center justify-center lg:justify-start gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-electric/20 to-electric/5 border border-electric/20
+                      flex items-center justify-center">
+            <span class="text-electric font-bold text-lg">A</span>
+          </div>
+          <span class="text-xl font-semibold text-white">Amirich</span>
+        </div>
+        <p class="text-zinc-500 text-sm">
+          Software Engineer crafting exceptional digital experiences.
+        </p>
+      </div>
+
+      <!-- Center: Social links -->
+      <div class="flex items-center justify-center gap-4">
+        @for (link of socialLinks; track link.id) {
+          <a [href]="link.href"
+             target="_blank"
+             [attr.aria-label]="link.name"
+             class="group w-12 h-12 flex items-center justify-center rounded-xl
+                    bg-obsidian-800/50 border border-obsidian-700
+                    transition-colors duration-300 hover:border-electric/50 hover:bg-obsidian-800">
+            <img [src]="link.icon"
+                 [alt]="link.alt"
+                 class="w-5 h-5 opacity-50 transition-opacity duration-300 group-hover:opacity-100"
+                 loading="lazy" />
+          </a>
+        }
+      </div>
+
+      <!-- Right: Copyright -->
+      <div class="text-center lg:text-right">
+        <p class="text-zinc-500 text-sm mb-2">
+          Designed & Built by
+          <span class="text-electric">Amirkhon Isomadinov</span>
+        </p>
+        <p class="text-zinc-600 text-xs">
+          &copy; {{ currentYear }} All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider my-8"></div>
+
+    <!-- Bottom row -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-600">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        <span>Available for new opportunities</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="https://t.me/Amirichinvoker" target="_blank" class="hover:text-electric transition-colors duration-300">
+          Telegram
+        </a>
+        <span class="text-obsidian-600">|</span>
+        <span>New York, USA</span>
+      </div>
+    </div>
+  </div>
+</footer>

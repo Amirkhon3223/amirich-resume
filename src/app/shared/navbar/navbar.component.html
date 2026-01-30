@@ -1,81 +1,119 @@
-<nav class="py-4">
-  <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-5 sm:px-6 lg:px-0 mx-auto">
-    <a class="flex items-center"
-       routerLink="/"
-    >
-      <img alt="AmirichLogo"
-           class="h-12 mr-3 sm:h-12"
-           src="../../../assets/images/logos/amirich-logo.svg"
-      />
-      <span class="self-center text-3xl font-bold text-general">
-        Amirich
-      </span>
-    </a>
-    <div class="flex items-center lg:order-2">
-      <div class="hidden mt-2 mr-4 sm:inline-block">
-        <span></span>
+<!-- Sleek Minimal Navbar -->
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+     [class.nav-scrolled]="isScrolled()">
+
+  <!-- Backdrop blur container -->
+  <div class="absolute inset-0 bg-obsidian-950/80 backdrop-blur-xl border-b border-obsidian-800/50"></div>
+
+  <div class="relative section-container">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+
+      <!-- Logo -->
+      <a routerLink="/"
+         class="group flex items-center gap-3 transition-opacity duration-300 hover:opacity-80">
+        <div class="relative">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-electric/20 to-electric/5 border border-electric/20
+                      flex items-center justify-center transition-all duration-300 group-hover:border-electric/40">
+            <span class="text-electric font-bold text-lg">A</span>
+          </div>
+        </div>
+        <span class="text-xl font-semibold text-white tracking-tight hidden sm:block">
+          Amirich
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-1">
+        <a (click)="onNavigateAndScroll('hero')"
+           class="nav-link">
+          Home
+        </a>
+        <a (click)="onNavigateAndScroll('about')"
+           class="nav-link">
+          About
+        </a>
+        <a (click)="onNavigateAndScroll('services')"
+           class="nav-link">
+          Services
+        </a>
+        <a (click)="onNavigateAndScroll('projects')"
+           class="nav-link">
+          Projects
+        </a>
       </div>
+
+      <!-- CTA Button - Contact -->
+      <div class="hidden lg:block">
+        <a href="https://t.me/Amirichinvoker"
+           target="_blank"
+           class="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full
+                  bg-electric/10 border border-electric/30 text-electric text-sm font-medium
+                  transition-all duration-300 hover:bg-electric/20 hover:border-electric/50">
+          <span>Contact Me</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
       <button (click)="toggleMenu()"
+              class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg
+                     transition-colors duration-300 hover:bg-obsidian-800"
               [attr.aria-expanded]="isMenuOpen()"
-              [class.block]="isMenuOpen()"
-              aria-controls="mobile-menu-2"
-              class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-900 focus:outline-none"
-              data-collapse-toggle="mobile-menu-2"
-              type="button"
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path clip-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                fill-rule="evenodd"
-          >
-          </path>
-        </svg>
+              aria-label="Toggle menu">
+        <div class="w-5 h-4 relative flex flex-col justify-between">
+          <span class="w-full h-0.5 bg-white rounded-full transition-all duration-300 origin-center"
+                [class.rotate-45]="isMenuOpen()"
+                [class.translate-y-1.5]="isMenuOpen()"></span>
+          <span class="w-full h-0.5 bg-white rounded-full transition-all duration-300"
+                [class.opacity-0]="isMenuOpen()"></span>
+          <span class="w-full h-0.5 bg-white rounded-full transition-all duration-300 origin-center"
+                [class.-rotate-45]="isMenuOpen()"
+                [class.-translate-y-1.5]="isMenuOpen()"></span>
+        </div>
       </button>
     </div>
+  </div>
 
-    <div [class.hidden]="!isMenuOpen()"
-         class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
-         id="mobile-menu-2"
-    >
-      <ul class="flex flex-col lg:space-y-0 space-y-5 mt-4 items-center font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-        <li>
-          <a class="cursor-pointer text-secondary lg:hover:bg-transparent lg:hover:text-white active:text-general"
-             routerLink="/"
-          >
-            Home
+  <!-- Mobile Menu -->
+  <div class="lg:hidden overflow-hidden transition-all duration-500 ease-spring"
+       [class.max-h-0]="!isMenuOpen()"
+       [class.max-h-96]="isMenuOpen()">
+    <div class="relative bg-obsidian-950/95 backdrop-blur-xl border-t border-obsidian-800/50">
+      <div class="section-container py-6 space-y-1">
+        <a (click)="onNavigateAndScroll('hero'); toggleMenu()"
+           class="mobile-nav-link">
+          Home
+        </a>
+        <a (click)="onNavigateAndScroll('about'); toggleMenu()"
+           class="mobile-nav-link">
+          About
+        </a>
+        <a (click)="onNavigateAndScroll('services'); toggleMenu()"
+           class="mobile-nav-link">
+          Services
+        </a>
+        <a (click)="onNavigateAndScroll('projects'); toggleMenu()"
+           class="mobile-nav-link">
+          Projects
+        </a>
+        <div class="pt-4">
+          <a href="https://t.me/Amirichinvoker"
+             target="_blank"
+             class="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl
+                    bg-electric/10 border border-electric/30 text-electric font-medium
+                    transition-all duration-300 active:scale-95">
+            <span>Contact Me</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
           </a>
-        </li>
-        <li>
-          <a (click)="onNavigateAndScroll('about')"
-             class="cursor-pointer text-secondary lg:hover:bg-transparent lg:hover:text-white active:text-general"
-          >
-            About
-          </a>
-        </li>
-        <li>
-          <a (click)="onNavigateAndScroll('services')"
-             class="cursor-pointer text-secondary lg:hover:bg-transparent lg:hover:text-white active:text-general"
-          >
-            Services
-          </a>
-        </li>
-        <li>
-          <a (click)="onNavigateAndScroll('projects')"
-             class="cursor-pointer text-secondary lg:hover:bg-transparent lg:hover:text-white active:text-general"
-          >
-            Projects
-          </a>
-        </li>
-        <li>
-          <a
-            class="text-white bg-general my-2 focus:ring-1 focus:ring-secondary font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
-            href="https://drive.google.com/drive/folders/1sub8N9JE1cKy4yMBYocKuYN9-Xj0ImBK?usp=drive_link"
-          >
-            Download Resume
-          </a>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
+
+<!-- Spacer for fixed navbar -->
+<div class="h-16 lg:h-20"></div>

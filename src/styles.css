@@ -1,4 +1,161 @@
-/* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ========================================
+   OBSIDIAN PRECISION - Global Styles
+   Dark Minimalist Portfolio Design
+   Оптимизировано для производительности
+   ======================================== */
+
+@layer base {
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-obsidian-950 text-zinc-200 font-body;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-electric/30 text-white;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-obsidian-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-obsidian-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-obsidian-500;
+  }
+}
+
+@layer components {
+  /* Glass morphism card - без blur для производительности */
+  .glass-card {
+    @apply bg-obsidian-900/60 border border-obsidian-700/50 rounded-2xl;
+  }
+
+  /* Hover glow effect - упрощённый */
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    @apply border-electric/30;
+  }
+
+  /* Electric border */
+  .electric-border {
+    @apply border border-obsidian-700 transition-colors duration-300;
+  }
+
+  .electric-border:hover {
+    @apply border-electric/50;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent;
+  }
+
+  .electric-text {
+    @apply text-electric;
+    text-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  /* Animated reveal */
+  .reveal {
+    @apply opacity-0 translate-y-8;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .reveal-delay-1 { animation-delay: 0.1s; }
+  .reveal-delay-2 { animation-delay: 0.2s; }
+  .reveal-delay-3 { animation-delay: 0.3s; }
+  .reveal-delay-4 { animation-delay: 0.4s; }
+  .reveal-delay-5 { animation-delay: 0.5s; }
+
+  /* Tech badge */
+  .tech-badge {
+    @apply px-4 py-2 text-sm font-mono text-zinc-400 bg-obsidian-800/50 border border-obsidian-700 rounded-full
+           transition-colors duration-300 hover:text-electric hover:border-electric/30;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight;
+  }
+
+  /* Divider line */
+  .divider {
+    @apply h-px bg-gradient-to-r from-transparent via-obsidian-700 to-transparent;
+  }
+
+  /* Glow orb - GPU accelerated */
+  .glow-orb {
+    @apply absolute rounded-full pointer-events-none;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.4) 0%, transparent 70%);
+    filter: blur(80px);
+    will-change: opacity;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  /* Project card with GPU acceleration */
+  .project-card {
+    @apply block rounded-2xl overflow-hidden bg-obsidian-900/60 border border-obsidian-700/50;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-card:hover {
+    @apply border-electric/40 shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(0, 240, 255, 0.15);
+    transform: translate3d(0, -4px, 0);
+  }
+
+  /* Shadow glow utility */
+  .shadow-glow {
+    box-shadow: 0 0 40px -10px rgba(0, 240, 255, 0.4);
+  }
+}
+
+@layer utilities {
+  /* Text balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

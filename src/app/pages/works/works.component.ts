@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project, ProjectsService } from '../../core/services/projects.service';
 
@@ -7,14 +7,11 @@ import { Project, ProjectsService } from '../../core/services/projects.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './works.component.html',
-  styleUrl: './works.component.css'
+  styleUrl: './works.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WorksComponent implements OnInit{
-  projects: Project[] = [];
+export class WorksComponent {
+  private readonly projectsService = inject(ProjectsService);
 
-  private projectsService = inject(ProjectsService);
-
-  ngOnInit(): void {
-    this.projects = this.projectsService.getProjects();
-  }
+  public readonly projects: Project[] = this.projectsService.getProjects();
 }
