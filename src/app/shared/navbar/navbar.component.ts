@@ -11,20 +11,19 @@ import { Router, RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  isMenuOpen = signal(false);
-  isScrolled = signal(false);
+  public readonly isMenuOpen = signal(false);
+  public readonly isScrolled = signal(false);
 
   private scrollListener: (() => void) | null = null;
 
   constructor(
-    private router: Router,
-    private ngZone: NgZone
+    private readonly router: Router,
+    private readonly ngZone: NgZone
   ) {}
 
-  ngOnInit(): void {
-    // Run scroll listener outside Angular zone to prevent change detection
+  public ngOnInit(): void {
     this.ngZone.runOutsideAngular(() => {
-      this.scrollListener = () => {
+      this.scrollListener = (): void => {
         const scrolled = window.scrollY > 50;
         if (this.isScrolled() !== scrolled) {
           this.ngZone.run(() => this.isScrolled.set(scrolled));
@@ -34,13 +33,27 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.scrollListener) {
       window.removeEventListener('scroll', this.scrollListener);
     }
   }
 
-  scrollToSection(sectionId: string): void {
+  public toggleMenu(): void {
+    this.isMenuOpen.update(value => !value);
+  }
+
+  public onNavigateAndScroll(sectionId: string): void {
+    if (this.router.url !== '/') {
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => this.scrollToSection(sectionId), 100);
+      });
+    } else {
+      this.scrollToSection(sectionId);
+    }
+  }
+
+  private scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
       const navbarHeight = 80;
@@ -49,20 +62,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         top: elementPosition - navbarHeight,
         behavior: 'smooth'
       });
-    }
-  }
-
-  toggleMenu(): void {
-    this.isMenuOpen.update(value => !value);
-  }
-
-  onNavigateAndScroll(sectionId: string): void {
-    if (this.router.url !== '/') {
-      this.router.navigate(['/']).then(() => {
-        setTimeout(() => this.scrollToSection(sectionId), 100);
-      });
-    } else {
-      this.scrollToSection(sectionId);
     }
   }
 }

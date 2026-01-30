@@ -11,11 +11,7 @@ import { OfferingsService, Service } from '../../core/services/offerings.service
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServicesComponent {
-  private offeringsService = inject(OfferingsService);
+  private readonly offeringsService = inject(OfferingsService);
 
-  readonly services: Service[] = this.offeringsService.getServices();
-
-  trackByServiceId(index: number, service: Service): number {
-    return service.id;
-  }
+  public readonly services: Service[] = this.offeringsService.getServices();
 }

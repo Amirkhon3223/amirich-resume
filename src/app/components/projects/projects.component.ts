@@ -19,7 +19,7 @@ interface Project {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectsComponent {
-  readonly projects: Project[] = [
+  public readonly projects: Project[] = [
     {
       id: 1,
       title: 'LexFlow',
@@ -40,7 +40,7 @@ export class ProjectsComponent {
       id: 3,
       title: 'DRNY Mobile Diagnostics',
       description: 'Mobile auto diagnostics and repair service (OEM standards)',
-      imageUrl: '/assets/images/drny.jpeg',
+      imageUrl: '/assets/images/drny.png',
       alt: 'DRNY Mobile Auto Diagnostics',
       href: 'https://drny.us/'
     },
@@ -48,7 +48,7 @@ export class ProjectsComponent {
       id: 4,
       title: 'Prime Drive Auto Body',
       description: 'Auto body repair and painting service landing page',
-      imageUrl: '/assets/images/prime-drive.jpeg',
+      imageUrl: '/assets/images/prime-drive.png',
       alt: 'Prime Drive Auto Body Service',
       href: 'https://prime-drive.netlify.app/'
     },
@@ -64,7 +64,7 @@ export class ProjectsComponent {
       id: 6,
       title: 'Brooklyn Cosmetology',
       description: 'Cosmetology services landing page',
-      imageUrl: '/assets/images/brooklyn-cosmetology.jpeg',
+      imageUrl: '/assets/images/brooklyn-cosmetology.png',
       alt: 'Brooklyn Cosmetology Services',
       href: 'https://brooklyn-casmetolog.netlify.app/'
     },

@@ -11,11 +11,7 @@ import { GeneralService, Social } from '../../core/services/general.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroSectionComponent {
-  private linkService = inject(GeneralService);
+  private readonly linkService = inject(GeneralService);
 
-  readonly socialLinks: Social[] = this.linkService.getSocialLinksSync();
-
-  trackBySocialId(index: number, link: Social): number {
-    return link.id;
-  }
+  public readonly socialLinks: Social[] = this.linkService.getSocialLinksSync();
 }

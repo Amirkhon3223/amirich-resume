@@ -38,7 +38,7 @@ export class OfferingsService {
     },
   ];
 
-  getServices(): Service[] {
+  public getServices(): Service[] {
     return this.servicesData;
   }
 }

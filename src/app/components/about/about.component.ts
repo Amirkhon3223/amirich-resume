@@ -11,12 +11,12 @@ import { About, GeneralService, Social } from '../../core/services/general.servi
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutComponent {
-  private generalService = inject(GeneralService);
+  private readonly generalService = inject(GeneralService);
 
-  readonly socialLinks: Social[] = this.generalService.getSocialLinksSync();
-  readonly aboutInfo: About[] = this.generalService.getAboutInfoSync();
+  public readonly socialLinks: Social[] = this.generalService.getSocialLinksSync();
+  public readonly aboutInfo: About[] = this.generalService.getAboutInfoSync();
 
-  readonly skills: string[] = [
+  public readonly skills: string[] = [
     'Angular',
     'React',
     'TypeScript',
@@ -34,12 +34,4 @@ export class AboutComponent {
     'Docker',
     'CI/CD',
   ];
-
-  trackBySkill(index: number, skill: string): string {
-    return skill;
-  }
-
-  trackByAboutId(index: number, item: About): number {
-    return item.id;
-  }
 }

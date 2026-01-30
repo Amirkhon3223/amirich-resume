@@ -11,11 +11,7 @@ import { Project, ProjectsService } from '../../core/services/projects.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorksComponent {
-  private projectsService = inject(ProjectsService);
+  private readonly projectsService = inject(ProjectsService);
 
-  readonly projects: Project[] = this.projectsService.getProjects();
-
-  trackByProjectId(index: number, project: Project): number {
-    return project.id;
-  }
+  public readonly projects: Project[] = this.projectsService.getProjects();
 }

@@ -20,7 +20,7 @@ export interface Social {
   providedIn: 'root'
 })
 export class GeneralService {
-  private readonly about: About[] = [
+  private readonly aboutData: About[] = [
     {
       id: 1,
       title: '7+ Years Experience',
@@ -47,7 +47,7 @@ export class GeneralService {
     }
   ];
 
-  private readonly socialLinks: Social[] = [
+  private readonly socialLinksData: Social[] = [
     {
       id: 1,
       name: 'Instagram',
@@ -78,21 +78,19 @@ export class GeneralService {
     },
   ];
 
-  // Синхронные методы - используй их для статических данных
-  getSocialLinksSync(): Social[] {
-    return this.socialLinks;
+  public getSocialLinksSync(): Social[] {
+    return this.socialLinksData;
   }
 
-  getAboutInfoSync(): About[] {
-    return this.about;
+  public getAboutInfoSync(): About[] {
+    return this.aboutData;
   }
 
-  // Observable методы оставлены для совместимости (если где-то используются)
-  getSocialLinks(): Observable<Social[]> {
-    return of(this.socialLinks);
+  public getSocialLinks(): Observable<Social[]> {
+    return of(this.socialLinksData);
   }
 
-  getAboutInfo(): Observable<About[]> {
-    return of(this.about);
+  public getAboutInfo(): Observable<About[]> {
+    return of(this.aboutData);
   }
 }

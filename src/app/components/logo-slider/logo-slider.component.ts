@@ -15,7 +15,7 @@ interface TechItem {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LogoSliderComponent {
-  readonly technologies: TechItem[] = [
+  public readonly technologies: TechItem[] = [
     { name: 'Angular', icon: '/assets/images/logos/angular.svg' },
     { name: 'React', icon: '/assets/images/logos/react.svg' },
     { name: 'Vue', icon: '/assets/images/logos/vue.svg' },
@@ -26,8 +26,4 @@ export class LogoSliderComponent {
     { name: 'Git', icon: '/assets/images/logos/git.svg' },
     { name: 'Bootstrap', icon: '/assets/images/logos/bootstrap.svg' },
   ];
-
-  trackByTech(index: number, tech: TechItem): string {
-    return tech.name;
-  }
 }
