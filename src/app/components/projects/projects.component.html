@@ -8,7 +8,7 @@
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 px-5 justify-center">
       <ng-container>
-        @for (project of projects | slice:0:4; track project.id) {
+        @for (project of projects; track project.id) {
           <a [href]="project.href"
              target="_blank"
              class="project-item group relative rounded-lg overflow-hidden hover:shadow-2xl cursor-pointer hover:scale-105 transition">
@@ -35,18 +35,5 @@
       </ng-container>
     </div>
 
-    <div class="grid mt-2 grid-cols-1 lg:mt-5 md:flex md:justify-center lg:justify-center my-6">
-      <a aria-label="add to slack"
-         routerLink="/projects"
-         class="p-4 border bg-gray-800 border-gray-700 rounded-full duration-300
-                hover:border-general hover:shadow-lg hover:shadow-indigo-600/20 hover:border-indigo-300/30"
-      >
-        <div class="flex justify-center space-x-4">
-          <span class="font-medium text-white">
-            View more projects
-          </span>
-        </div>
-      </a>
-    </div>
   </div>
 </section>
