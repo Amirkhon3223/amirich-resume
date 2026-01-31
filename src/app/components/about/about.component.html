@@ -103,26 +103,64 @@
       </div>
 
       <!-- Right: Stats cards -->
-      <div class="grid grid-cols-2 gap-4">
-        @for (about of aboutInfo; track about.id; let i = $index) {
-          <div class="glass-card p-5 group hover-glow"
-               [class.col-span-2]="i === 0 || i === 3">
-            <div class="flex items-center gap-4">
-              <!-- Фиксированный размер иконки -->
-              <div class="w-10 h-10 min-w-[40px] rounded-xl bg-electric/10 border border-electric/20
-                          flex items-center justify-center
-                          transition-all duration-300 group-hover:bg-electric/20">
-                <img [src]="about.icon"
-                     alt=""
-                     class="w-5 h-5" />
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white">{{ about.title }}</h3>
-                <p class="text-zinc-400 text-sm line-clamp-2">{{ about.text }}</p>
+      <div class="space-y-6">
+        <div class="grid grid-cols-2 gap-4">
+          @for (about of aboutInfo; track about.id; let i = $index) {
+            <div class="glass-card p-5 group hover-glow"
+                 [class.col-span-2]="i === 0 || i === 3">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 min-w-[40px] rounded-xl bg-electric/10 border border-electric/20
+                            flex items-center justify-center
+                            transition-all duration-300 group-hover:bg-electric/20">
+                  <img [src]="about.icon"
+                       alt=""
+                       class="w-5 h-5" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-xl font-bold text-white">{{ about.title }}</h3>
+                  <p class="text-zinc-400 text-sm line-clamp-2">{{ about.text }}</p>
+                </div>
               </div>
             </div>
+          }
+        </div>
+
+        <!-- Work Preferences -->
+        <div class="glass-card p-5">
+          <h4 class="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">Work Preferences</h4>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="text-center p-3 rounded-xl bg-obsidian-800/50 border border-obsidian-700">
+              <svg class="w-5 h-5 text-electric mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-xs text-zinc-400">Remote</span>
+            </div>
+            <div class="text-center p-3 rounded-xl bg-obsidian-800/50 border border-obsidian-700">
+              <svg class="w-5 h-5 text-electric mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-xs text-zinc-400">Full-time</span>
+            </div>
+            <div class="text-center p-3 rounded-xl bg-obsidian-800/50 border border-obsidian-700">
+              <svg class="w-5 h-5 text-electric mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span class="text-xs text-zinc-400">Contract</span>
+            </div>
           </div>
-        }
+        </div>
+
+        <!-- Languages -->
+        <div class="flex items-center gap-4 px-2">
+          <span class="text-xs text-zinc-500 uppercase tracking-wider">Languages:</span>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-zinc-300">🇺🇸 English</span>
+            <span class="text-zinc-600">•</span>
+            <span class="text-sm text-zinc-300">🇷🇺 Russian</span>
+            <span class="text-zinc-600">•</span>
+            <span class="text-sm text-zinc-300">🇹🇯 Tajik</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
