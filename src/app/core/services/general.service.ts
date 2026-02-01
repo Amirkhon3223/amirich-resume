@@ -43,7 +43,7 @@ export class GeneralService {
       id: 4,
       title: 'NASA Challenge Winner',
       text: 'Global Winner of NASA Space Apps; invited to NASA HQ & Goddard Space Flight Center.',
-      icon: '/assets/icons/client-centric.svg',
+      icon: '/assets/images/logos/nasa.svg',
     }
   ];
 
