@@ -1,30 +1,32 @@
-/* Marquee animation - GPU accelerated */
+/* True Infinite Marquee - Snake Style */
 .marquee-container {
+  position: relative;
+  height: 52px;
   overflow: hidden;
-  width: 100%;
 }
 
-.marquee-content {
+.marquee-item {
   display: flex;
-  gap: 1rem;
-  width: max-content;
-  animation: marquee 35s linear infinite;
-  will-change: transform;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  background: rgba(24, 24, 27, 0.4);
+  border: 1px solid rgba(39, 39, 42, 1);
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  will-change: left;
 }
 
-.marquee-content:hover {
-  animation-play-state: paused;
+.marquee-item img {
+  width: 1.75rem;
+  height: 1.75rem;
+  opacity: 0.7;
 }
 
-.tech-item {
-  flex-shrink: 0;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
+.marquee-item span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(161, 161, 170);
 }

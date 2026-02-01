@@ -1,4 +1,4 @@
-<!-- Tech Stack Marquee -->
+<!-- Tech Stack Marquee - True Infinite Snake -->
 <section class="relative py-12 overflow-hidden">
 
   <!-- Background glow -->
@@ -16,43 +16,21 @@
     </div>
 
     <!-- Marquee container -->
-    <div class="relative">
+    <div class="relative"
+         (mouseenter)="onMouseEnter()"
+         (mouseleave)="onMouseLeave()">
       <!-- Fade edges -->
-      <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-obsidian-950 to-transparent z-10"></div>
-      <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-obsidian-950 to-transparent z-10"></div>
+      <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-obsidian-950 to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-obsidian-950 to-transparent z-10 pointer-events-none"></div>
 
-      <!-- Scrolling content -->
-      <div class="marquee-container">
-        <div class="marquee-content">
-          <!-- First set -->
-          @for (tech of technologies; track tech.name) {
-            <div class="tech-item">
-              <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl
-                          bg-obsidian-900/40 border border-obsidian-800">
-                <img [src]="tech.icon"
-                     [alt]="tech.name"
-                     class="w-7 h-7 opacity-70" />
-                <span class="text-sm font-medium text-zinc-400">
-                  {{ tech.name }}
-                </span>
-              </div>
-            </div>
-          }
-          <!-- Duplicate set for seamless loop -->
-          @for (tech of technologies; track tech.name + '-dup') {
-            <div class="tech-item">
-              <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl
-                          bg-obsidian-900/40 border border-obsidian-800">
-                <img [src]="tech.icon"
-                     [alt]="tech.name"
-                     class="w-7 h-7 opacity-70" />
-                <span class="text-sm font-medium text-zinc-400">
-                  {{ tech.name }}
-                </span>
-              </div>
-            </div>
-          }
-        </div>
+      <!-- Items container with relative positioning -->
+      <div #container class="marquee-container">
+        @for (item of items; track trackByIndex($index)) {
+          <div class="marquee-item">
+            <img [src]="item.icon" [alt]="item.name" />
+            <span>{{ item.name }}</span>
+          </div>
+        }
       </div>
     </div>
   </div>
